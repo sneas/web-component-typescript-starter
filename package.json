@@ -1,0 +1,19 @@
+{
+  "name": "web-component-typescript-seed",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sneas/web-component-typescript-seed.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sneas/web-component-typescript-seed/issues"
+  },
+  "homepage": "https://github.com/sneas/web-component-typescript-seed#readme"
+}
