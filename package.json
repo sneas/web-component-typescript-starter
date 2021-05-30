@@ -4,6 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "webpack --env production",
+    "start": "webpack serve --env development --open",
+    "predemo": "rimraf ./demo",
+    "demo": "webpack --env demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/sneas/web-component-typescript-seed/issues"
   },
-  "homepage": "https://github.com/sneas/web-component-typescript-seed#readme"
+  "homepage": "https://github.com/sneas/web-component-typescript-seed#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  }
 }
