@@ -21,6 +21,7 @@ const commonConfig = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: 'source-map',
 };
 
 const demoConfig = {
@@ -32,7 +33,6 @@ const demoConfig = {
 
 const devConfig = {
   mode: 'development',
-  devtool: 'source-map',
 };
 
 const prodConfig = {};
