@@ -11,11 +11,11 @@ template.innerHTML = `
 `;
 
 class SaySomething extends HTMLElement {
-  private $headline
-  private $span
+  private $headline;
+  private $span;
 
   private _color;
-  private _text
+  private _text;
 
   constructor() {
     super();
@@ -28,11 +28,11 @@ class SaySomething extends HTMLElement {
   }
 
   connectedCallback() {
-    if(!this.hasAttribute('color')) {
+    if (!this.hasAttribute('color')) {
       this.setAttribute('color', 'orange');
     }
 
-    if(!this.hasAttribute('text')) {
+    if (!this.hasAttribute('text')) {
       this.setAttribute('text', '');
     }
 
@@ -44,14 +44,14 @@ class SaySomething extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    switch(name) {
+    switch (name) {
       case 'color':
         this._color = newVal;
         break;
       case 'text':
         this._text = newVal;
         break;
-    };
+    }
 
     this._render();
   }

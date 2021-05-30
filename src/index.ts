@@ -20,26 +20,26 @@ template.innerHTML = `
 `;
 
 class App extends HTMLElement {
-    private $allSaySomething
-    private $input
+  private $allSaySomething;
+  private $input;
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        const shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.appendChild(template.content.cloneNode(true));
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.$input = shadowRoot.querySelector('input');
-        this.$input.addEventListener('input', this._handleChange.bind(this));
+    this.$input = shadowRoot.querySelector('input');
+    this.$input.addEventListener('input', this._handleChange.bind(this));
 
-        this.$allSaySomething = shadowRoot.querySelectorAll('say-something');
-    }
+    this.$allSaySomething = shadowRoot.querySelectorAll('say-something');
+  }
 
-    _handleChange() {
-        this.$allSaySomething.forEach(element => {
-            element.setAttribute('text', this.$input.value)
-        });
-    }
+  _handleChange() {
+    this.$allSaySomething.forEach((element) => {
+      element.setAttribute('text', this.$input.value);
+    });
+  }
 }
 
 window.customElements.define('my-app', App);
