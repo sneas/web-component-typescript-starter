@@ -1,5 +1,5 @@
 {
-  "name": "web-component-typescript-seed",
+  "name": "web-component-typescript-starter",
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sneas/web-component-typescript-seed.git"
+    "url": "git+https://github.com/sneas/web-component-typescript-starter.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sneas/web-component-typescript-seed/issues"
+    "url": "https://github.com/sneas/web-component-typescript-starter/issues"
   },
-  "homepage": "https://github.com/sneas/web-component-typescript-seed#readme",
+  "homepage": "https://github.com/sneas/web-component-typescript-starter#readme",
   "devDependencies": {
     "css-loader": "^5.2.6",
     "html-loader": "^2.1.2",

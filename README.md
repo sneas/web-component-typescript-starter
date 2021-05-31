@@ -1,4 +1,4 @@
-# web-component-typescript-seed
+# web-component-typescript-starter
 
 This project provides a structure for developing and distributing web components bundled into a single JS file.
 
