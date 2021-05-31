@@ -1,6 +1,6 @@
-import styles from './styles.scss';
+import styles from "./styles.scss";
 
-const template = document.createElement('template');
+const template = document.createElement("template");
 
 template.innerHTML = `
   <style>
@@ -18,14 +18,14 @@ class AltImage extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.element = shadowRoot.querySelector('.alt-image');
+    this.element = shadowRoot.querySelector(".alt-image");
   }
 
   connectedCallback() {
-    const img = this.querySelector('img');
+    const img = this.querySelector("img");
 
     if (img === null) {
       return;
@@ -35,11 +35,11 @@ class AltImage extends HTMLElement {
       return;
     }
 
-    const paragraph = document.createElement('p');
+    const paragraph = document.createElement("p");
     paragraph.textContent = img.alt;
 
     this.element.appendChild(paragraph);
   }
 }
 
-window.customElements.define('alt-image', AltImage);
+window.customElements.define("alt-image", AltImage);

@@ -1,52 +1,52 @@
-const { merge } = require('webpack-merge');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require("webpack-merge");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const commonConfig = {
-  mode: 'production',
-  entry: './src/index.ts',
+  mode: "production",
+  entry: "./src/index.ts",
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['css-loader', 'sass-loader'],
+        use: ["css-loader", "sass-loader"],
       },
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: ["html-loader"],
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  devtool: 'source-map',
+  devtool: "source-map",
 };
 
 const demoConfig = {
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
+      template: "./public/index.html",
+      filename: "index.html",
       inject: true,
     }),
   ],
   output: {
-    path: path.resolve(__dirname, 'demo'),
+    path: path.resolve(__dirname, "demo"),
   },
 };
 
 const devConfig = {
-  mode: 'development',
+  mode: "development",
 };
 
 const prodConfig = {};
@@ -60,6 +60,6 @@ module.exports = (env) => {
     case env.production:
       return merge(commonConfig, prodConfig);
     default:
-      throw new Error('No matching configuration was found!');
+      throw new Error("No matching configuration was found!");
   }
 };
