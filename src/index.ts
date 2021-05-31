@@ -1,27 +1,19 @@
-import './components/say-something.ts';
+import styles from './styles.scss';
 
 const template = document.createElement('template');
 
 template.innerHTML = `
   <style>
-    :host {
-      font-family: sans-serif;
-    }
+    ${styles}
   </style>
 
-  <div>
-    <h1>Web Components with Webpack Starter Kit</h1>
-
-    Text: <input type="text" />
-
-    <say-something></say-something>
-    <say-something color="red"></say-something>
+  <div class="alt-image">
+    <slot></slot>
   </div>
 `;
 
-class App extends HTMLElement {
-  private $allSaySomething;
-  private $input;
+class AltImage extends HTMLElement {
+  element: HTMLElement;
 
   constructor() {
     super();
@@ -29,17 +21,25 @@ class App extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.$input = shadowRoot.querySelector('input');
-    this.$input.addEventListener('input', this._handleChange.bind(this));
-
-    this.$allSaySomething = shadowRoot.querySelectorAll('say-something');
+    this.element = shadowRoot.querySelector('.alt-image');
   }
 
-  _handleChange() {
-    this.$allSaySomething.forEach((element) => {
-      element.setAttribute('text', this.$input.value);
-    });
+  connectedCallback() {
+    const img = this.querySelector('img');
+
+    if (img === null) {
+      return;
+    }
+
+    if (!img.alt) {
+      return;
+    }
+
+    const paragraph = document.createElement('p');
+    paragraph.textContent = img.alt;
+
+    this.element.appendChild(paragraph);
   }
 }
 
-window.customElements.define('my-app', App);
+window.customElements.define('alt-image', AltImage);

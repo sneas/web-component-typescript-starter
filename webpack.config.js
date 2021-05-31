@@ -12,6 +12,14 @@ const commonConfig = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader'],
+      },
     ],
   },
   resolve: {
@@ -25,7 +33,13 @@ const commonConfig = {
 };
 
 const demoConfig = {
-  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+      inject: true,
+    }),
+  ],
   output: {
     path: path.resolve(__dirname, 'demo'),
   },
